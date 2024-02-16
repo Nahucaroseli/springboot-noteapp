@@ -1,0 +1,216 @@
+*{
+    margin: 0;
+    background: none;
+}
+nav{
+    background-color: rgb(32, 32, 32);
+    height: 60px;
+    display: flex;
+    align-items: center;
+    
+}
+h1,p,input,label,textarea,h3{
+    background: none;
+}
+
+form h3{
+    margin-right: 65px;
+    font-size: xx-large;
+    color:black;
+}
+
+nav i {
+    margin-left: 20px;
+}
+
+
+nav h1:hover{
+    cursor: pointer;
+}
+
+
+h1{
+    margin-left: 40px;
+    color:white;
+}
+
+
+form{
+
+    background: white;
+    padding: 4rem;
+    top: 13%;
+    left: 38%;
+    position: absolute;
+    color: black;
+    display: none;
+    flex-direction: column;
+    width: 17rem;
+    height: 30rem;
+}
+
+form i{
+    top: -15%;
+    width: 10%;
+    position: relative;
+    right: -107%;
+}
+
+
+
+form input,form textarea,form label{
+    margin-top:1rem;
+    color:black;
+}
+
+form #archived{
+    margin-top: 0;
+}
+
+
+
+form input{
+    border-bottom: 1px solid black;
+}
+
+
+
+form.visible{
+    display:flex;
+}
+
+
+form #categories{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+form #categories label{
+    font-size:medium;
+    margin-right:10px;
+
+}
+
+form #categories input{
+    margin-right: 3px;
+    font-size:small;
+}
+
+
+form button{
+    background: black;
+    border-radius: 2rem;
+    margin-top: 50px;
+    padding: 1rem;
+    color: white;
+}
+
+
+
+h3{
+    text-align: right;
+    color: white;
+}
+
+h1,h2,p{
+    background: none;
+}
+
+
+.notes .notes-container{
+
+    margin-top: 3rem;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    gap: 4;
+
+
+}
+
+.notes h1{
+    margin-left: 50px;
+    margin-top: 50px;
+}
+
+.notes .category_filter{
+    margin-top: 15px;
+    justify-content: right;
+    margin-right: 20px;
+    display: flex;
+}
+
+
+.notes select{
+    margin-left: 10px;
+    text-align: right;
+    background: white;
+}
+
+.notes .notes-container .note{
+    background-color: #beb9b94d;
+    position: relative;
+    height: 14rem;
+    width: 15rem;
+    color:white;
+    margin-left: 3rem;
+    padding: 2rem;
+    margin-top: 2rem;
+    border-bottom-right-radius: 40px;
+}
+
+
+.notes .notes-container .note .buttons{
+    position: absolute;
+    right: 8%;
+    overflow: hidden;
+    top: 87%;
+}
+
+.notes .notes-container .note .buttons i{
+
+    margin-left: 10px;
+}
+
+.notes .notes-container .note .buttons i:hover{
+    cursor: pointer;
+}
+
+
+.notes .notes-container .note h2{
+    word-wrap: break-word;
+    overflow: hidden;
+   margin-top: 1px;
+}
+
+
+.notes .notes-container .note p{
+    word-wrap: break-word;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.notes .notes-container .note #note_categories p{
+    color: black;
+    
+    background: white;
+    padding: .2rem;
+    border-radius: 10px;
+    margin-left: 5px;
+    font-size: 15px;
+}
+.notes .notes-container .note #note_categories{
+    margin-left: -5px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+
+
+@media screen and (max-width:700px) {
+    form{
+        left: 15%;
+    }
+    
+}

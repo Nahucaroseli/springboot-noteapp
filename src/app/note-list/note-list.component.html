@@ -1,0 +1,79 @@
+<nav>
+    <i class="fa-solid fa-plus fa-xl" style="color: #f2f2f2;" (click)="toggleForm()" id="add"></i>
+    <h1 [routerLink]="'/archived'">Archived Notes</h1>
+  </nav>
+  
+
+
+
+
+<div class="notes">
+    <h1>My Notes</h1>
+      <div class="category_filter">
+        <h3>Filter by Category:</h3>
+          <select id="categoryFilter" [(ngModel)]="selectedCategory" (change)="filterbyCategory(selectedCategory)">
+            <option value="" selected>All Categories</option>
+            <option *ngFor="let category of categories" [value]="category.name">{{ category.name }}</option>
+          </select>
+      </div>
+    <div class="notes-container">
+        <div *ngFor="let note of notes">
+            <div class="note"  *ngIf="note.archived==false">
+                <h2>{{note.title}}</h2>
+                <p>{{note.description}}</p>
+                <div id="categories" id="note_categories">
+                  <div *ngFor="let category of note.categories" >
+                    <p><strong>{{category}}</strong></p>
+                  </div>
+                </div>
+                <div class="buttons">
+                    <i  (click)="deleteNote(note)" class="fa-solid fa-trash" style="color: #f2f2f2;"></i>
+                    <i  (click)="toggleEditForm(note)" (click)="showFormEdit()"  class="fa-solid fa-pencil" style="color: #f2f2f2;"></i>
+                    <i  (click)="archiveNote(note)" class="fa-solid fa-box-archive" style="color: #f2f2f2;"></i>
+                </div>
+            </div>
+  
+        </div>
+    </div>
+  </div>
+
+  <form [ngClass]="{'visible':showEditForm}" (ngSubmit)="editNote()">
+    <h3>Edit Note</h3>
+    <i class="fa-solid fa-x" style="color: #000000;" (click)="showFormEdit()"></i>
+    <label for="title"><strong>Title:</strong></label>
+    <input id="title" name="title" type="text" [(ngModel)]="noteEdit.title">
+    <label for="description"> <strong>Description:</strong> </label>
+    <textarea id="description" name="description" [(ngModel)]="noteEdit.description" required></textarea>
+    <label for="categories"> <strong>Tags:</strong> </label>
+    <div id="categories"> 
+        <div *ngFor="let category of categories">
+          <input type="checkbox" name="categories" id="{{category.name}}" [(ngModel)]="category.selected" [value]="category.name">
+          <label for="{{category}}">{{category.name}}</label>
+        </div>
+    </div>
+    <button type="submit">Edit Note</button>
+  
+  
+  </form>
+
+
+<form [ngClass]="{'visible':showForm}" (ngSubmit)="createNote()" >
+    <h3 id="form_title">Create Note</h3>
+    <i class="fa-solid fa-x" style="color: #000000;" (click)="toggleForm()"></i>
+    <label for="title"><strong>Title:</strong></label>
+    <input id="title" name="title" type="text" [(ngModel)]="newNote.title">
+
+    <label for="description"> <strong>Description:</strong> </label>
+    <textarea id="description" name="description" [(ngModel)]="newNote.description" required></textarea>
+    <label for="categories"> <strong>Tags:</strong> </label>
+    <div id="categories"> 
+        <div *ngFor="let category of categories">
+          <input type="checkbox" name="categories" id="{{category.name}}" [(ngModel)]="category.selected"           
+          [value]="category.name">
+          <label for="{{category}}">{{category.name}}</label>
+        </div>
+    </div>
+    <button type="submit">Create Note</button>
+
+
+</form>
