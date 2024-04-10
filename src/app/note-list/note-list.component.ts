@@ -12,6 +12,7 @@ export class NoteListComponent {
 
   notes:Note[];
   showForm:boolean=false;
+  loading:boolean= true;
   selectedCategory: string="";
   showEditForm:boolean=false;
   categories: { name: string, selected: boolean }[] = [
@@ -42,7 +43,9 @@ export class NoteListComponent {
   getNotes(){
     this.service.getNotes().subscribe(res=>{
       this.notes = res;
+      this.loading = false;
     })
+  
   }
 
   filterbyCategory(category:string){

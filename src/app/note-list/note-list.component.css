@@ -14,7 +14,7 @@
 
 
 nav{
-    background-color: rgb(32, 32, 32);
+    background-color: rgb(36, 35, 35);
     height: 60px;
     display: flex;
     align-items: center;
@@ -131,6 +131,19 @@ h1,h2,p{
 }
 
 
+.loading{
+    position: absolute;
+    overflow-x: hidden;
+    left: 43%;
+    top: 50%;
+}
+
+.empty_container{
+    position: absolute;
+    left: 35%;
+    top: 50%;
+}
+
 .notes .notes-container{
 
     margin-top: 3rem;
@@ -228,6 +241,14 @@ h1,h2,p{
 @media screen and (max-width:700px) {
     form{
         left: 15%;
+    }
+
+    .empty_container{
+        left: 8%;
+    }
+
+    .loading{
+        left: 30%;
     }
     
 }
