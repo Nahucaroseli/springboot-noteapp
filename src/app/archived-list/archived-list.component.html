@@ -23,7 +23,7 @@
                 </div>
                 <div class="buttons">
                     <i  (click)="deleteNote(note)" class="fa-solid fa-trash" style="color: #f2f2f2;"></i>
-                    <i  (click)="toggleEditForm(note)"  (click)="showFormEdit()" class="fa-solid fa-pencil" style="color: #f2f2f2;"></i>
+                    <i class="fa-solid fa-pencil" style="color: #f2f2f2;"></i>
                     <i  (click)="dearchiveNote(note)" class="fa-solid fa-box-archive" style="color: #f2f2f2;"></i>
                 </div>
     
@@ -32,19 +32,22 @@
     </div>
   </div>
 
-  <form [ngClass]="{'visible':showEditForm}" (ngSubmit)="editNote()">
-    <h3>Edit Note</h3>
-    <i class="fa-solid fa-x" style="color: #000000;" (click)="showFormEdit()"></i>
-    <label for="title"><strong>Title:</strong></label>
-    <input id="title" name="title" type="text" [(ngModel)]="noteEdit.title">
-    <label for="description"> <strong>Description:</strong> </label>
-    <textarea id="description" name="description" [(ngModel)]="noteEdit.description" required></textarea>
-    <label for="categories"> <strong>Tags:</strong> </label>
-    <div id="categories"> 
-        <div *ngFor="let category of categories">
-          <input type="checkbox" name="categories" id="{{category.name}}" [(ngModel)]="category.selected" [value]="category.name">
-          <label for="{{category}}">{{category.name}}</label>
-        </div>
-    </div>
-    <button type="submit">Edit Note</button>
+  <div class="overlay" [ngClass]="{'active': showEditForm}">
+    <form (ngSubmit)="editNote()" [ngClass]="{'visible': showEditForm}">
+      <h3>Edit Note</h3>
+      <i class="fa-solid fa-x" style="color: #000000;"></i>
+      <label for="title"><strong>Title:</strong></label>
+      <input id="title" name="title" type="text" [(ngModel)]="noteEdit.title">
+      <label for="description"> <strong>Description:</strong> </label>
+      <textarea id="description" name="description" [(ngModel)]="noteEdit.description" required></textarea>
+      <label for="categories"> <strong>Tags:</strong> </label>
+      <div id="categories">
+          <div *ngFor="let category of categories">
+            <input type="checkbox" name="categories" id="{{category.name}}" [(ngModel)]="category.selected" [value]="category.name">
+            <label for="{{category}}">{{category.name}}</label>
+          </div>
+      </div>
+      <button type="submit">Edit Note</button>
+    </form>
+  </div>
   
